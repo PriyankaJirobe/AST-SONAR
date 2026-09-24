@@ -1,6 +1,7 @@
 #define POT_PIN 34
 #define BUTTON1 25
 #define BUTTON2 26
+#define BUZZER 27
 
 int powerLevel = 50;
 int mode = 0;
@@ -13,6 +14,9 @@ void setup() {
 
   pinMode(BUTTON1, INPUT_PULLUP);
   pinMode(BUTTON2, INPUT_PULLUP);
+
+  pinMode(BUZZER, OUTPUT);
+  digitalWrite(BUZZER, LOW);
 }
 
 void loop() {
@@ -20,6 +24,13 @@ void loop() {
   int potValue = analogRead(POT_PIN);
 
   int frequency = map(potValue, 0, 4095, 500, 5000);
+
+  // BUZZER / TRANSMISSION
+  digitalWrite(BUZZER, HIGH);
+  delay(100);
+
+  digitalWrite(BUZZER, LOW);
+  delay(100);
 
   // BUTTON 1 — manual power
   bool button1 = digitalRead(BUTTON1);
@@ -36,7 +47,6 @@ void loop() {
 
   lastButton1 = button1;
 
-
   // BUTTON 2 — mode selection
   bool button2 = digitalRead(BUTTON2);
 
@@ -52,16 +62,14 @@ void loop() {
 
   lastButton2 = button2;
 
-
-  // LOW POWER MODE automatically limits power
+  // LOW POWER MODE
   int actualPower = powerLevel;
 
   if (mode == 2) {
     actualPower = 30;
   }
 
-
-  // DISPLAY
+  // SERIAL DISPLAY
   Serial.println();
   Serial.println("================================");
   Serial.println("          AST - SONAR");
