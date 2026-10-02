@@ -1,5 +1,4 @@
-# AST-SONAR
-
+# AquaTX
 ## Adaptive Sonar Transmission System
 
 AST-SONAR is an ESP32-based proof-of-concept prototype exploring
