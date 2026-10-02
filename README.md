@@ -1,8 +1,7 @@
 # AquaTX
 ## Adaptive Sonar Transmission System
 
-AST-SONAR is an ESP32-based proof-of-concept prototype exploring
-software-controlled and reconfigurable sonar transmission.
+AquaTX is an ESP32-based proof-of-concept prototype exploring software-controlled and reconfigurable sonar transmission.
 
 The project demonstrates hardware control, user-defined parameters,
 operating modes, physical output and real-time monitoring through
@@ -85,13 +84,13 @@ The dashboard communicates with the ESP32 through a live serial link.
 
 ## 📁 Project Structure
 
-AST-SONAR/
+AquaTX/
 │
 ├── README.md
-├── ast_sonar.ino
+├── aquaTX.ino
 │
 └── dashboard/
-    └── ast_sonar_dashboard.py
+    └── aquaTX_dashboard.py
 
 ---
 
